@@ -1,9 +1,9 @@
 {
-	"parent": "realbanhammer:item/banhammer",
+	"parent": "realbanhammer:item/black_banhammer",
 	"textures": {
-		"0": "realbanhammer:item/head",
-		"1": "realbanhammer:item/handle",
-		"particle": "realbanhammer:item/head"
+		"0": "realbanhammer:item/black_head",
+		"1": "realbanhammer:item/black_handle",
+		"particle": "realbanhammer:item/black_head"
 	},
 	"elements": [
 		{
