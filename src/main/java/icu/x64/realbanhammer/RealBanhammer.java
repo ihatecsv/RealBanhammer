@@ -81,8 +81,9 @@ public class RealBanhammer implements ModInitializer {
                 if (itemStack.getDamage() != 0) {
                     itemStack.setDamage(0);
                 }
+                return false;
             }
-            return false;
+            return true;
         });
     }
 }

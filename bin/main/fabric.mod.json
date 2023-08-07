@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "realbanhammer",
+  "version": "${version}",
+  "name": "RealBanhammer",
+  "description": "Wield the ultimate authority! Strike players to ban them instantly and obliterate mobs with a single hit.",
+  "authors": [
+    "ihatecsv"
+  ],
+  "contact": {
+    "repo": "https://github.com/ihatecsv/RealBanhammer"
+  },
+  "license": "MIT",
+  "icon": "assets/realbanhammer/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "icu.x64.realbanhammer.client.RealBanhammerClient"
+    ],
+    "main": [
+      "icu.x64.realbanhammer.RealBanhammer"
+    ]
+  },
+  "mixins": [
+    "realbanhammer.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
