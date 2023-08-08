@@ -1,4 +1,5 @@
 {
-  "item.realbanhammer.red_banhammer": "Red Banhammer",
-  "item.realbanhammer.black_banhammer": "Black Banhammer"
+  "item.realbanhammer.red_banhammer": "§4Red Banhammer",
+  "item.realbanhammer.black_banhammer": "§4Black Banhammer",
+  "desc.realbanhammer.banhammer": "Wield responsibly!"
 }
