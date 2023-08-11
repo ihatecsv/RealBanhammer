@@ -2,7 +2,6 @@ package icu.x64.realbanhammer;
 
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.client.item.TooltipContext;
-import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.SwordItem;
 import net.minecraft.item.ToolMaterials;
@@ -14,7 +13,7 @@ import java.util.List;
 
 public class BanhammerItem extends SwordItem {
     public BanhammerItem() {
-        super(ToolMaterials.NETHERITE, 9000,-0.35f, new FabricItemSettings().maxCount(1));
+        super(ToolMaterials.NETHERITE, 0,-0.35f, new FabricItemSettings().maxCount(1));
     }
     @Override
     public boolean isDamageable() {
