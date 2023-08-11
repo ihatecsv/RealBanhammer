@@ -3,11 +3,12 @@ import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.player.AttackEntityCallback;
 import net.fabricmc.fabric.api.event.player.PlayerBlockBreakEvents;
 import net.fabricmc.fabric.api.event.player.UseItemCallback;
-import net.minecraft.block.DispenserBlock;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.*;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
 import net.minecraft.server.BannedPlayerEntry;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.network.ServerPlayerEntity;
@@ -18,7 +19,6 @@ import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.hit.HitResult;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
 import net.minecraft.world.explosion.Explosion;
 import org.jetbrains.annotations.Nullable;
@@ -36,7 +36,7 @@ public class RealBanhammer implements ModInitializer {
     }
     public static void executeBanhammerEffect(World world, Entity entity, @Nullable PlayerEntity player) {
         if (!world.isClient) {
-            world.createExplosion(null, entity.getX(), entity.getY(), entity.getZ(), 0.0F, Explosion.DestructionType.NONE);
+            world.createExplosion(null, entity.getX(), entity.getY(), entity.getZ(), 0.0F, World.ExplosionSourceType.NONE);
             if (entity instanceof PlayerEntity targetPlayer) {
                 MinecraftServer server = world.getServer();
 
@@ -65,8 +65,8 @@ public class RealBanhammer implements ModInitializer {
 
     @Override
     public void onInitialize() {
-        Registry.register(Registry.ITEM, new Identifier("realbanhammer", "black_banhammer"), BLACK_BANHAMMER);
-        Registry.register(Registry.ITEM, new Identifier("realbanhammer", "red_banhammer"), RED_BANHAMMER);
+        Registry.register(Registries.ITEM, new Identifier("realbanhammer", "black_banhammer"), BLACK_BANHAMMER);
+        Registry.register(Registries.ITEM, new Identifier("realbanhammer", "red_banhammer"), RED_BANHAMMER);
 
         // DispenserBlock.registerBehavior(BLACK_BANHAMMER, new BanhammerDispenserBehavior());
         // DispenserBlock.registerBehavior(RED_BANHAMMER, new BanhammerDispenserBehavior());
@@ -96,7 +96,7 @@ public class RealBanhammer implements ModInitializer {
                     HitResult hitResult = player.raycast(5.0D, 0.0F, true);
                     if (hitResult.getType() == HitResult.Type.BLOCK) {
                         BlockPos pos = ((BlockHitResult) hitResult).getBlockPos();
-                        world.createExplosion(null, pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, 0.0F, Explosion.DestructionType.NONE);
+                        world.createExplosion(null, pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, 0.0F, World.ExplosionSourceType.NONE);
                     }
                 }
             }
